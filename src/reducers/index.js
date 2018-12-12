@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import { UPDATE_INPUT } from '../actions';
+import { UPDATE_INPUT, SLOW_UPDATE_INPUT } from '../actions';
 
-const inputValue = (state = '', action) => {
+const jumpingInput = (state = '', action) => {
   switch (action.type) {
     case UPDATE_INPUT:
       return action.value;
@@ -10,6 +10,16 @@ const inputValue = (state = '', action) => {
   }
 }
 
+const slowJumpingInput = (state = '', action) => {
+  switch (action.type) {
+    case SLOW_UPDATE_INPUT:
+      return action.value;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
-  inputValue
+  jumpingInput,
+  slowJumpingInput
 })

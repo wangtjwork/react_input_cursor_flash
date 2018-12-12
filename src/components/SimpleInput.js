@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import DirtyWrapper from './DirtyWrapper';
 
 class SimpleInput extends Component {
   render() {
@@ -14,10 +12,4 @@ class SimpleInput extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    inputValue: state.inputValue
-  }
-}
-
-export default connect(mapStateToProps)(DirtyWrapper(SimpleInput));
+export default SimpleInput

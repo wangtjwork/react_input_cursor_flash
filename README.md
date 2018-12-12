@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Purpose
 
-A demonstration of unexpected lost input cursor position on input elements controlled by React.
+A demonstration of unexpected lost input cursor position on input elements with asynchronous updates to their values.
 
 ### Set up
 
@@ -14,4 +14,4 @@ After a new browser window is open, type a string into the input field, and then
 
 ## Learn More
 
-To learn about how to fix the behavior and some guessings on the root cause of the problem, check out my Medium post [Bugs of Week 11/19/2018](https://medium.com/@wangtjwork/bugs-of-week-11-19-2018-jumping-cursor-5c7431e7532b).
+To learn about how to fix the behavior and the root cause of the problem, check out my Medium post [Bugs of Week 11/19/2018 - Jumping Cursor](https://medium.com/@wangtjwork/bugs-of-week-11-19-2018-jumping-cursor-5c7431e7532b).

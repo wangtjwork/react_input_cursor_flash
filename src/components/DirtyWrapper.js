@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { updateInput } from '../actions';
+import { updateInput, slowUpdateInput } from '../actions';
 
-const DirtyWrapper = (ChildComponent) => class extends Component {
+const DirtyWrapper = (ChildComponent, delayTime) => class extends Component {
   constructor(props) {
     super(props);
 
@@ -11,8 +11,27 @@ const DirtyWrapper = (ChildComponent) => class extends Component {
   }
 
   setField = (value) => {
+    // switch between the blocks below to see the affect of async actions has on the input element
+
+    // Using window.setTimeout to make it async
+    // window.setTimeout(() => {
+    //   this.props.dispatch(updateInput(value));
+    // }, 1);
+
+    // Using Promise to make it async
+    // Promise.resolve().then(() => {
+    //   this.props.dispatch(updateInput(value));
+    // });
+
+    // Using this.setState to make it async
     this.setState({isDirty: true}, () => {
-      this.props.dispatch(updateInput(value));
+      if (!delayTime) {
+        this.props.dispatch(updateInput(value));
+      } else {
+        window.setTimeout(() => {
+          this.props.dispatch(slowUpdateInput(value));
+        }, delayTime);
+      }
     });
   }
 
@@ -21,4 +40,4 @@ const DirtyWrapper = (ChildComponent) => class extends Component {
   }
 }
 
-export default DirtyWrapper
+export default DirtyWrapper;
